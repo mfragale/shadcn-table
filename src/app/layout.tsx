@@ -72,9 +72,8 @@ export default function RootLayout({ children }: React.PropsWithChildren) {
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
           fontSans.variable,
-          fontMono.variable,
-        )}
-      >
+          fontMono.variable
+        )}>
         <Script
           defer
           data-site-id={siteConfig.url}
@@ -84,8 +83,7 @@ export default function RootLayout({ children }: React.PropsWithChildren) {
           attribute="class"
           defaultTheme="system"
           enableSystem
-          disableTransitionOnChange
-        >
+          disableTransitionOnChange>
           <div className="relative flex min-h-screen flex-col">
             <SiteHeader />
             <main className="flex-1">{children}</main>
