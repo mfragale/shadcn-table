@@ -37,8 +37,7 @@ export function DataTablePagination<TData>({
             value={`${table.getState().pagination.pageSize}`}
             onValueChange={(value) => {
               table.setPageSize(Number(value));
-            }}
-          >
+            }}>
             <SelectTrigger className="h-8 w-[4.5rem]">
               <SelectValue placeholder={table.getState().pagination.pageSize} />
             </SelectTrigger>
@@ -61,8 +60,7 @@ export function DataTablePagination<TData>({
             variant="outline"
             className="hidden size-8 p-0 lg:flex"
             onClick={() => table.setPageIndex(0)}
-            disabled={!table.getCanPreviousPage()}
-          >
+            disabled={!table.getCanPreviousPage()}>
             <ChevronsLeft className="size-4" aria-hidden="true" />
           </Button>
           <Button
@@ -71,8 +69,7 @@ export function DataTablePagination<TData>({
             size="icon"
             className="size-8"
             onClick={() => table.previousPage()}
-            disabled={!table.getCanPreviousPage()}
-          >
+            disabled={!table.getCanPreviousPage()}>
             <ChevronLeft className="size-4" aria-hidden="true" />
           </Button>
           <Button
@@ -81,8 +78,7 @@ export function DataTablePagination<TData>({
             size="icon"
             className="size-8"
             onClick={() => table.nextPage()}
-            disabled={!table.getCanNextPage()}
-          >
+            disabled={!table.getCanNextPage()}>
             <ChevronRight className="size-4" aria-hidden="true" />
           </Button>
           <Button
@@ -91,8 +87,7 @@ export function DataTablePagination<TData>({
             size="icon"
             className="hidden size-8 lg:flex"
             onClick={() => table.setPageIndex(table.getPageCount() - 1)}
-            disabled={!table.getCanNextPage()}
-          >
+            disabled={!table.getCanNextPage()}>
             <ChevronsRight className="size-4" aria-hidden="true" />
           </Button>
         </div>

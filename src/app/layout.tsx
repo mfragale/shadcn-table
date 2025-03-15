@@ -1,6 +1,5 @@
 import { SiteHeader } from "@/components/layouts/site-header";
 import { ThemeProvider } from "@/components/providers";
-import { TailwindIndicator } from "@/components/tailwind-indicator";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
@@ -88,7 +87,7 @@ export default function RootLayout({ children }: React.PropsWithChildren) {
             <SiteHeader />
             <main className="flex-1">{children}</main>
           </div>
-          <TailwindIndicator />
+          {/* <TailwindIndicator /> */}
         </ThemeProvider>
         <Toaster />
       </body>
