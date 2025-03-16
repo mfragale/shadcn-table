@@ -36,8 +36,7 @@ export function TasksTableToolbarActions({
             filename: "tasks",
             excludeColumns: ["select", "actions"],
           })
-        }
-      >
+        }>
         <Download />
         Export
       </Button>

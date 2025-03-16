@@ -32,7 +32,7 @@ interface TasksTableProps {
     [
       Awaited<ReturnType<typeof getTasks>>,
       Awaited<ReturnType<typeof getTaskStatusCounts>>,
-      Awaited<ReturnType<typeof getTaskPriorityCounts>>,
+      Awaited<ReturnType<typeof getTaskPriorityCounts>>
     ]
   >;
 }
@@ -156,14 +156,12 @@ export function TasksTable({ promises }: TasksTableProps) {
         table={table}
         floatingBar={
           enableFloatingBar ? <TasksTableFloatingBar table={table} /> : null
-        }
-      >
+        }>
         {enableAdvancedTable ? (
           <DataTableAdvancedToolbar
             table={table}
             filterFields={advancedFilterFields}
-            shallow={false}
-          >
+            shallow={false}>
             <TasksTableToolbarActions table={table} />
           </DataTableAdvancedToolbar>
         ) : (

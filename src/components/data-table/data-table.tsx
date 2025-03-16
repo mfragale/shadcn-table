@@ -39,8 +39,7 @@ export function DataTable<TData>({
   return (
     <div
       className={cn("w-full space-y-2.5 overflow-auto", className)}
-      {...props}
-    >
+      {...props}>
       {children}
       <div className="overflow-hidden rounded-md border">
         <Table>
@@ -54,13 +53,12 @@ export function DataTable<TData>({
                       colSpan={header.colSpan}
                       style={{
                         ...getCommonPinningStyles({ column: header.column }),
-                      }}
-                    >
+                      }}>
                       {header.isPlaceholder
                         ? null
                         : flexRender(
                             header.column.columnDef.header,
-                            header.getContext(),
+                            header.getContext()
                           )}
                     </TableHead>
                   );
@@ -73,18 +71,16 @@ export function DataTable<TData>({
               table.getRowModel().rows.map((row) => (
                 <TableRow
                   key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
-                >
+                  data-state={row.getIsSelected() && "selected"}>
                   {row.getVisibleCells().map((cell) => (
                     <TableCell
                       key={cell.id}
                       style={{
                         ...getCommonPinningStyles({ column: cell.column }),
-                      }}
-                    >
+                      }}>
                       {flexRender(
                         cell.column.columnDef.cell,
-                        cell.getContext(),
+                        cell.getContext()
                       )}
                     </TableCell>
                   ))}
@@ -94,8 +90,7 @@ export function DataTable<TData>({
               <TableRow>
                 <TableCell
                   colSpan={table.getAllColumns().length}
-                  className="h-24 text-center"
-                >
+                  className="h-24 text-center">
                   No results.
                 </TableCell>
               </TableRow>

@@ -80,7 +80,7 @@ export function getColumns({
       ),
       cell: ({ row }) => {
         const label = tasks.label.enumValues.find(
-          (label) => label === row.original.label,
+          (label) => label === row.original.label
         );
 
         return (
@@ -100,7 +100,7 @@ export function getColumns({
       ),
       cell: ({ cell }) => {
         const status = tasks.status.enumValues.find(
-          (status) => status === cell.getValue<Task["status"]>(),
+          (status) => status === cell.getValue<Task["status"]>()
         );
 
         if (!status) return null;
@@ -128,7 +128,7 @@ export function getColumns({
       ),
       cell: ({ cell }) => {
         const priority = tasks.priority.enumValues.find(
-          (priority) => priority === cell.getValue<Task["priority"]>(),
+          (priority) => priority === cell.getValue<Task["priority"]>()
         );
 
         if (!priority) return null;
@@ -176,15 +176,13 @@ export function getColumns({
               <Button
                 aria-label="Open menu"
                 variant="ghost"
-                className="flex size-8 p-0 data-[state=open]:bg-muted"
-              >
+                className="flex size-8 p-0 data-[state=open]:bg-muted">
                 <Ellipsis className="size-4" aria-hidden="true" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-40">
               <DropdownMenuItem
-                onSelect={() => setRowAction({ row, type: "update" })}
-              >
+                onSelect={() => setRowAction({ row, type: "update" })}>
                 Edit
               </DropdownMenuItem>
               <DropdownMenuSub>
@@ -203,18 +201,16 @@ export function getColumns({
                             loading: "Updating...",
                             success: "Label updated",
                             error: (err) => getErrorMessage(err),
-                          },
+                          }
                         );
                       });
-                    }}
-                  >
+                    }}>
                     {tasks.label.enumValues.map((label) => (
                       <DropdownMenuRadioItem
                         key={label}
                         value={label}
                         className="capitalize"
-                        disabled={isUpdatePending}
-                      >
+                        disabled={isUpdatePending}>
                         {label}
                       </DropdownMenuRadioItem>
                     ))}
@@ -223,8 +219,7 @@ export function getColumns({
               </DropdownMenuSub>
               <DropdownMenuSeparator />
               <DropdownMenuItem
-                onSelect={() => setRowAction({ row, type: "delete" })}
-              >
+                onSelect={() => setRowAction({ row, type: "delete" })}>
                 Delete
                 <DropdownMenuShortcut>⌘⌫</DropdownMenuShortcut>
               </DropdownMenuItem>
