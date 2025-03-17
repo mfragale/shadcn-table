@@ -1,5 +1,13 @@
 {
   "version": "5",
   "dialect": "mysql",
-  "entries": []
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1742153260674,
+      "tag": "0000_silly_junta",
+      "breakpoints": true
+    }
+  ]
 }

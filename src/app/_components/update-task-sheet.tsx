@@ -37,6 +37,7 @@ export function UpdateTaskSheet({ task, ...props }: UpdateTaskSheetProps) {
       label: task?.label,
       status: task?.status,
       priority: task?.priority,
+      dueDate: task?.dueDate ?? null,
     },
   });
 
@@ -70,7 +71,7 @@ export function UpdateTaskSheet({ task, ...props }: UpdateTaskSheetProps) {
           </SheetDescription>
         </SheetHeader>
         <TaskForm<UpdateTaskSchema> form={form} onSubmit={onSubmit}>
-          <SheetFooter className="gap-2 pt-2 sm:space-x-0">
+          <SheetFooter className="gap-2 sm:space-x-0 pt-2">
             <SheetClose asChild>
               <Button type="button" variant="outline">
                 Cancel

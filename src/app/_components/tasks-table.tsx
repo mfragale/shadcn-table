@@ -126,6 +126,11 @@ export function TasksTable({ promises }: TasksTableProps) {
       })),
     },
     {
+      id: "dueDate",
+      label: "Due Date",
+      type: "date",
+    },
+    {
       id: "createdAt",
       label: "Created at",
       type: "date",

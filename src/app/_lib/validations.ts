@@ -34,6 +34,7 @@ export const createTaskSchema = z.object({
   label: z.enum(tasks.label.enumValues),
   status: z.enum(tasks.status.enumValues),
   priority: z.enum(tasks.priority.enumValues),
+  dueDate: z.date().nullable().optional(),
 });
 
 export const updateTaskSchema = z.object({
@@ -41,6 +42,7 @@ export const updateTaskSchema = z.object({
   label: z.enum(tasks.label.enumValues).optional(),
   status: z.enum(tasks.status.enumValues).optional(),
   priority: z.enum(tasks.priority.enumValues).optional(),
+  dueDate: z.date().nullable().optional(),
 });
 
 export type GetTasksSchema = Awaited<

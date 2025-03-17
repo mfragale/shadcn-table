@@ -44,6 +44,7 @@ export async function createTask(input: CreateTaskSchema) {
           status: input.status,
           label: input.label,
           priority: input.priority,
+          dueDate: input.dueDate,
         })
         .returning({
           id: tasks.id,
@@ -64,8 +65,8 @@ export async function createTask(input: CreateTaskSchema) {
               .where(not(eq(tasks.id, newTask.id)))
               .orderBy(asc(tasks.createdAt))
               .then(takeFirstOrThrow)
-          ).id,
-        ),
+          ).id
+        )
       );
     });
 
@@ -95,6 +96,7 @@ export async function updateTask(input: UpdateTaskSchema & { id: string }) {
         label: input.label,
         status: input.status,
         priority: input.priority,
+        dueDate: input.dueDate,
       })
       .where(eq(tasks.id, input.id))
       .returning({
@@ -128,6 +130,7 @@ export async function updateTasks(input: {
   label?: Task["label"];
   status?: Task["status"];
   priority?: Task["priority"];
+  dueDate?: Date | null;
 }) {
   unstable_noStore();
   try {
@@ -137,6 +140,7 @@ export async function updateTasks(input: {
         label: input.label,
         status: input.status,
         priority: input.priority,
+        dueDate: input.dueDate,
       })
       .where(inArray(tasks.id, input.ids))
       .returning({

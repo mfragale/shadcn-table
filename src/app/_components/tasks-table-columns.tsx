@@ -86,7 +86,7 @@ export function getColumns({
         return (
           <div className="flex space-x-2">
             {label && <Badge variant="outline">{label}</Badge>}
-            <span className="max-w-[31.25rem] truncate font-medium">
+            <span className="max-w-[31.25rem] font-medium truncate">
               {row.getValue("title")}
             </span>
           </div>
@@ -108,7 +108,7 @@ export function getColumns({
         const Icon = getStatusIcon(status);
 
         return (
-          <div className="flex w-[6.25rem] items-center">
+          <div className="flex items-center w-[6.25rem]">
             <Icon
               className="mr-2 size-4 text-muted-foreground"
               aria-hidden="true"
@@ -159,6 +159,33 @@ export function getColumns({
       ),
     },
     {
+      accessorKey: "dueDate",
+      header: ({ column }) => (
+        <DataTableColumnHeader column={column} title="Due Date" />
+      ),
+      cell: ({ cell }) => {
+        const date = cell.getValue<Date | null>();
+        return date ? (
+          formatDate(date)
+        ) : (
+          <span className="text-muted-foreground">Not set</span>
+        );
+      },
+      filterFn: (row, id, value) => {
+        const date = row.getValue<Date | null>(id);
+        if (!date) return false;
+
+        // For date range filtering
+        if (Array.isArray(value) && value.length === 2) {
+          const [start, end] = value as [string, string];
+          const dateValue = date;
+          return dateValue >= new Date(start) && dateValue <= new Date(end);
+        }
+
+        return true;
+      },
+    },
+    {
       accessorKey: "createdAt",
       header: ({ column }) => (
         <DataTableColumnHeader column={column} title="Created At" />
@@ -176,7 +203,7 @@ export function getColumns({
               <Button
                 aria-label="Open menu"
                 variant="ghost"
-                className="flex size-8 p-0 data-[state=open]:bg-muted">
+                className="flex data-[state=open]:bg-muted p-0 size-8">
                 <Ellipsis className="size-4" aria-hidden="true" />
               </Button>
             </DropdownMenuTrigger>

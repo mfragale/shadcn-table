@@ -125,3 +125,227 @@ Consider subscribing to Kavin Desi Valli's [YouTube channel](https://www.youtube
 ## How do I deploy this?
 
 Follow the deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+
+
+# **Tech Stack Summary**
+
+## **Core Technologies**
+
+### **Next.js (v15.1.6)**
+
+* Purpose: A React framework for building server-rendered applications  
+* Features Used:  
+* App Router (modern routing system)  
+* Server Components (RSC)  
+* Server-side rendering (SSR)  
+* API routes  
+* File-based routing
+
+### **React (v19.0.0)**
+
+* Purpose: JavaScript library for building user interfaces  
+* Features Used:  
+* Functional components  
+* React Hooks (useState, useEffect, useMemo)  
+* Suspense for loading states  
+* Server Components
+
+### **TypeScript**
+
+* Purpose: Strongly-typed JavaScript superset  
+* Features Used:  
+* Type interfaces for components and data  
+* Type safety for database schema  
+* Strict type checking  
+* Type inference
+
+## **Database & Data Management**
+
+### **PostgreSQL**
+
+* Purpose: Relational database system  
+* Features Used:  
+* Tables for storing structured data  
+* Relationships between data entities
+
+### **Drizzle ORM (v0.40.0)**
+
+* Purpose: TypeScript ORM for SQL databases  
+* Features Used:  
+* Schema definition with type safety  
+* Query building  
+* Migrations  
+* Database seeding  
+* Type inference for database entities
+
+## **UI Components & Styling**
+
+### **Shadcn UI**
+
+* Purpose: Component library built on Radix UI primitives  
+* Features Used:  
+* Pre-built accessible components  
+* Customizable design system  
+* Component composition
+
+### **Radix UI**
+
+* Purpose: Unstyled, accessible UI primitives  
+* Components Used:  
+* Dialog  
+* Dropdown Menu  
+* Checkbox  
+* Select  
+* Popover  
+* Toggle  
+* Tooltip  
+* Separator
+
+### **Tailwind CSS (v4.0.12)**
+
+* Purpose: Utility-first CSS framework  
+* Features Used:  
+* Responsive design utilities  
+* Component styling  
+* Dark mode support  
+* Animation utilities
+
+### **Tailwind Merge & Class Variance Authority**
+
+* Purpose: Tools for managing Tailwind class names  
+* Features Used:  
+* Conditional class application  
+* Component variants  
+* Class name merging
+
+## **Data Table & Advanced UI**
+
+### **TanStack Table (v8.20.6)**
+
+* Purpose: Headless UI for building powerful tables  
+* Features Used:  
+* Sorting  
+* Filtering  
+* Pagination  
+* Row selection  
+* Column visibility  
+* Column pinning
+
+### **DND Kit**
+
+* Purpose: Drag and drop toolkit for React  
+* Features Used:  
+* Sortable elements  
+* Drag and drop functionality  
+* Modifiers for drag behavior
+
+## **Form Handling & Validation**
+
+### **React Hook Form (v7.54.2)**
+
+* Purpose: Form state management and validation  
+* Features Used:  
+* Form validation  
+* Form state management  
+* Error handling
+
+### **Zod (v3.24.1)**
+
+* Purpose: TypeScript-first schema validation  
+* Features Used:  
+* Form validation  
+* API input validation  
+* Type inference from schemas
+
+## **Additional Libraries**
+
+### **Date-fns (v4.1.0)**
+
+* Purpose: Date manipulation library  
+* Features Used:  
+* Date formatting  
+* Date calculations  
+* Date range handling
+
+### **Lucide React (v0.482.0)**
+
+* Purpose: Icon library  
+* Features Used:  
+* UI icons  
+* Customizable icon components
+
+### **Next Themes (v0.4.4)**
+
+* Purpose: Theme management for Next.js  
+* Features Used:  
+* Dark/light mode switching  
+* Theme persistence
+
+### **Sonner (v2.0.0)**
+
+* Purpose: Toast notifications  
+* Features Used:  
+* User feedback notifications  
+* Success/error messages
+
+### **NUQS (v2.3.1)**
+
+* Purpose: URL state management  
+* Features Used:  
+* Serializing state to URL parameters  
+* Parsing URL parameters into state
+
+## **Development Tools**
+
+### **Biome (v1.9.4)**
+
+* Purpose: JavaScript/TypeScript linter and formatter  
+* Features Used:  
+* Code linting  
+* Code formatting  
+* Code quality checks
+
+### **PNPM (v9.15.4)**
+
+* Purpose: Fast, disk-space efficient package manager  
+* Features Used:  
+* Dependency management  
+* Script running
+
+## **Project Architecture**
+
+The project follows a modern Next.js App Router structure with:
+
+1. src/app/ \- Contains page components and routing  
+2. src/components/ \- Reusable UI components  
+   1. data-table/ \- Advanced table components  
+   2. ui/ \- Shadcn UI components  
+   3. layouts/ \- Layout components  
+3. src/db/ \- Database schema and utilities  
+4. src/lib/ \- Utility functions and helpers  
+5. src/hooks/ \- Custom React hooks  
+6. src/types/ \- TypeScript type definitions  
+7. src/styles/ \- Global styles
+
+## **Application Features**
+
+The application appears to be a task management system with:
+
+1. Data Table \- Advanced table for displaying and managing tasks  
+2. Filtering \- Complex filtering capabilities for tasks  
+3. Sorting \- Sorting tasks by various properties  
+4. CRUD Operations \- Creating, reading, updating, and deleting tasks  
+5. Feature Flags \- Toggling features like advanced table and floating bar  
+6. Date Range Picking \- Filtering tasks by date ranges  
+7. Responsive Design \- Mobile-friendly UI
+
+This tech stack represents a modern, type-safe, and component-based approach to web development, focusing on performance, accessibility, and developer experience.
+
+## **Add new column**
+Now I have a good understanding of the project structure. Let's add a new column called "dueDate" to the tasks table. This will involve several steps:
+
+1. Update the database schema
+2. Update the validation schemas
+3. Update the form components
+4. Update the table columns
+5. Update the actions

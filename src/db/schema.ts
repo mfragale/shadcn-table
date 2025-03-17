@@ -28,6 +28,7 @@ export const tasks = pgTable("tasks", {
   })
     .notNull()
     .default("low"),
+  dueDate: timestamp("due_date"),
   archived: boolean("archived").notNull().default(false),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at")
